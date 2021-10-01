@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Pass Page</title>
+ </head>
+<body>
+<h1>Pass phrase by Sai Harsha Vennela</h1>
+
+
+<form>
+    <label for="password1">Enter the secret phrase</label>
+    <input type ="password" id="password1" name="password1" placeholder="Let me in"> 
+    <br>
+    <br>
+
+    <label for="phraseCheck">Enter a phrase </label>
+    <input type ="text" id="phraseCheck" name="phraseCheck" > <br>
+<br>
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+
+<p id="result"> Result :</p>
+
+<script> 
+
+function processPhrase (){
+
+    let correct = 0;
+    let wrong = 0;
+
+    pwd = document.getElementById("password1").value;
+    check = document.getElementById("phraseCheck").value;
+        out = document.getElementById("result");
+    if(pwd==check)
+    {
+        correct=correct+1;
+        alert("Access allowed. "  );
+        out.innerHTML = "Correct: "+correct;
+        
+    }
+    else
+    {
+        wrong=wrong+1;
+        alert("Access denied. ");
+        out.innerHTML = "Wrong: "+wrong;
+
+    }
+}
+</script>
+
+</body>
+</html> 
