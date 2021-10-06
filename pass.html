@@ -47,7 +47,33 @@ function processPhrase (){
 
     }
 }
+
+let usingImage = 1;
+
+function newImage()
+ {
+     switch(usingImage)
+     {
+         case 1:
+             document.getElementById('imge').src="lion.jpg";
+             usingImage=2;
+             break;
+         case 2:
+         document.getElementById('imge').src="elephant.jpg";
+             usingImage=3;
+             break;
+         case 3:
+         document.getElementById('imge').src="vulture.jpg";
+         usingImage=1;
+             break;
+     }
+ }
 </script>
+
+<div class="container">
+    <img src="lion.jpg" alt="Lion image" height="200" width="200" onclick="newImage()" id="imge">
+</div>
+
 
 </body>
 </html> 
