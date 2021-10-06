@@ -22,13 +22,21 @@
     <input type="button" value="Order a car" onclick="orderCar()">
 
 </form>
-
-
 <p id="result"> </p>
+<br>
+<form>
+    <label for="color">Enter a property</label>
+    <input type="text" value="color" id="color"><br><br> 
+    <label for="property">Enter a value</label>
+    <input type="text" value="property" id="property"> <br><br>
+    <input type="button" value="Update the car" onclick="updateCar()"><br>
+</form>
 
+
+<p id  = "result2"></p>
 <script> 
 
-let my_car = new Object();
+let my_car = {};
 
 function orderCar()
 {
@@ -41,6 +49,17 @@ function orderCar()
     out.innerHTML = electric+" and "+ac+" and "+gps;
 }
 
+function updateCar()
+{
+    color = document.getElementById("color").value
+    property = document.getElementById("property").value
+
+    out = document.getElementById("result2");
+
+    my_car = color + " and " + property;
+
+    out.innerHTML = "Properties of car after updation : "+my_car;
+}
 </script>
 
 </body>
