@@ -2,13 +2,24 @@
 <html>
  <head>
      <title>Pass Page</title>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+   
  </head>
-<body>
-<h1>Pass phrase by Sai Harsha Vennela</h1>
+<body class="container bg-dark text-white">
+<h1 class="text-primary" >Pass phrase by Sai Harsha Vennela</h1>
 
 
 <form>
-    <label for="password1">Enter the secret phrase</label>
+    <label for="password1" >Enter the secret phrase</label>
     <input type ="password" id="password1" name="password1" placeholder="Let me in"> 
     <br>
     <br>
@@ -16,18 +27,16 @@
     <label for="phraseCheck">Enter a phrase </label>
     <input type ="text" id="phraseCheck" name="phraseCheck" > <br>
 <br>
-    <input type="button" onclick="processPhrase()" value="Check the phrase">
+    <input type="button" onclick="processPhrase()" id="error" value="Check the phrase" class="btn btn-light">
 </form>
 
 
 <p id="result"> Result :</p>
 
 <script> 
-
-function processPhrase (){
-
-    let correct = 0;
+let correct = 0;
     let wrong = 0;
+function processPhrase (){
 
     pwd = document.getElementById("password1").value;
     check = document.getElementById("phraseCheck").value;
@@ -35,6 +44,7 @@ function processPhrase (){
     if(pwd==check)
     {
         correct=correct+1;
+        
         alert("Access allowed. "  );
         out.innerHTML = "Correct: "+correct;
         
@@ -45,6 +55,15 @@ function processPhrase (){
         alert("Access denied. ");
         out.innerHTML = "Wrong: "+wrong;
 
+        if(wrong == 3)
+        {
+            document.getElementById("error").onclick = lockedAlert()
+        }
+    }
+
+    function lockedAlert()
+    {
+        alert("account locked");
     }
 }
 
@@ -70,8 +89,8 @@ function newImage()
  }
 </script>
 
-<div class="container">
-    <img src="lion.jpg" alt="Lion image" height="200" width="200" onclick="newImage()" id="imge">
+<div  class="container">
+    <img src="lion.jpg" alt="Lion image" class="rounded" height="200" width="200" onclick="newImage()" id="imge" style="cursor : pointer">
 </div>
 
 
